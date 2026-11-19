@@ -44,31 +44,28 @@ document.querySelectorAll('[data-count]').forEach(el => {
 });
 gsap.from('.stat', { y: 60, opacity: 0, stagger: .1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.stats', start: 'top 80%' } });
 
-// Videos: each plays its own time range of the same file, looping, only while on screen
-function loopRange(v) {
-  const a = +v.dataset.start || 0, b = +v.dataset.end || 0;
-  const toStart = () => { try { v.currentTime = a; } catch (e) {} };
-  v.addEventListener('loadedmetadata', toStart);
-  if (v.readyState >= 1) toStart();
-  v.addEventListener('timeupdate', () => { if ((b && v.currentTime >= b) || v.currentTime < a - 0.2) toStart(); });
-  v.addEventListener('ended', () => { toStart(); v.play().catch(() => {}); });
-  new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? v.play().catch(() => {}) : v.pause()), { threshold: .05 }).observe(v);
+// Scroll controls video time (videos are encoded with dense keyframes for smooth seeking)
+function scrubVideo(v, trigger, onProg) {
+  let tgt = 0, cur = -1;
+  ScrollTrigger.create({ trigger, start: 'top top', end: 'bottom bottom', scrub: true,
+    onUpdate: s => { if (v.duration) tgt = s.progress * (v.duration - 0.05); onProg && onProg(s.progress); } });
+  (function tick() {
+    if (v.readyState >= 1 && !v.seeking && Math.abs(tgt - cur) > 0.01) { cur += (tgt - cur) * 0.2; if (cur < 0) cur = 0; try { v.currentTime = cur; } catch (e) {} }
+    requestAnimationFrame(tick);
+  })();
 }
-loopRange(document.getElementById('heroImg'));
+scrubVideo(document.getElementById('heroImg'), '.hero');
 
 const vid = document.getElementById('scrubVideo');
 const caps = gsap.utils.toArray('.cap');
 const bar = document.getElementById('scrubBar');
 let lastIdx = -2;
-loopRange(vid);
-ScrollTrigger.create({ trigger: '.scrub', start: 'top top', end: 'bottom bottom', scrub: true, onUpdate: s => {
-  const p = s.progress;
+scrubVideo(vid, '.scrub', p => {
   bar.style.width = (p * 100) + '%';
-  gsap.set(vid, { scale: 1.25 - p * 0.25 });
   let idx = -1; caps.forEach((c, i) => { if (p >= +c.dataset.at) idx = i; });
   if (idx !== lastIdx) { lastIdx = idx;
     caps.forEach((c, i) => gsap.to(c, { opacity: i === idx ? 1 : 0, y: i === idx ? 0 : (i < idx ? -40 : 40), duration: .6, overwrite: true })); }
-} });
+});
 
 // Section text rising in
 gsap.utils.toArray('.up').forEach(el => gsap.to(el, { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
@@ -79,17 +76,13 @@ document.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => 
   document.querySelectorAll('.cards-rail').forEach(r => r.classList.toggle('hidden', r.dataset.panel !== b.dataset.tab));
   const rail = document.querySelector('.cards-rail[data-panel="' + b.dataset.tab + '"]');
   rail.scrollLeft = 0;
-  gsap.fromTo(rail.children, { y: 60, opacity: 0, rotate: 3 }, { y: 0, opacity: 1, rotate: 0, stagger: .06, duration: .8, ease: 'back.out(1.4)' });
+  gsap.fromTo(rail.children, { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, stagger: .06, duration: .7, ease: 'back.out(1.4)' });
 }));
-gsap.from('.cards-rail[data-panel="ug"] .pcard', { y: 80, opacity: 0, rotate: 4, stagger: .07, duration: 1, ease: 'back.out(1.3)', scrollTrigger: { trigger: '.cards-rail', start: 'top 85%' } });
+gsap.from('.cards-rail[data-panel="ug"] .pcard', { opacity: 0, scale: .88, stagger: .07, duration: .9, ease: 'back.out(1.3)', scrollTrigger: { trigger: '.cards-rail', start: 'top 85%' } });
 
-// PANORAMA: image pans sideways while scrolling down
-const track = document.getElementById('panoTrack');
-function panDist() { return Math.max(0, track.scrollWidth - innerWidth); }
-gsap.fromTo(track, { x: 0, scale: 1.15 }, {
-  x: () => -panDist(), scale: 1, ease: 'none',
-  scrollTrigger: { trigger: '.pano', start: 'top top', end: 'bottom bottom', scrub: true, invalidateOnRefresh: true }
-});
+// FULL PHOTO: starts zoomed on the students, pulls back to show the whole picture
+gsap.fromTo('#panoTrack img', { scale: 1.8, transformOrigin: '62% 72%' }, { scale: 1, ease: 'none',
+  scrollTrigger: { trigger: '.pano', start: 'top top', end: '70% bottom', scrub: true } });
 gsap.from('.pano-copy', { y: 80, opacity: 0, scrollTrigger: { trigger: '.pano', start: 'top 30%', end: 'top -20%', scrub: true } });
 
 // JOURNEY: line draws, steps light up
@@ -101,16 +94,6 @@ document.querySelectorAll('.step').forEach(s => ScrollTrigger.create({ trigger: 
 
 // FACILITIES tiles
 gsap.to('.tile', { opacity: 1, y: 0, scale: 1, stagger: .08, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.grid', start: 'top 80%' } });
-
-// MASCOT: vector student walks in, then waves and throws the cap
-const mt = gsap.timeline({ scrollTrigger: { trigger: '.closing', start: 'top 75%' } });
-mt.from('#mascot', { x: -260, opacity: 0, duration: 1.2, ease: 'power3.out' })
-  .to('#armR', { rotate: -150, svgOrigin: '128 118', duration: .5, ease: 'back.out(2)' })
-  .to('#gradCap', { y: -120, rotate: 340, svgOrigin: '100 40', duration: 1, ease: 'power2.out' }, '<.2')
-  .to('#gradCap', { y: 0, rotate: 360, svgOrigin: '100 40', duration: .9, ease: 'bounce.out' })
-  .to('#armR', { rotate: -120, svgOrigin: '128 118', duration: .35, yoyo: true, repeat: 5, ease: 'sine.inOut' }, '<');
-gsap.to('#mascotBody', { y: -4, duration: 1.6, yoyo: true, repeat: -1, ease: 'sine.inOut' });
-gsap.to('#eyes', { scaleY: .1, transformOrigin: '50% 50%', duration: .08, yoyo: true, repeat: -1, repeatDelay: 3 });
 
 // CLOSING title
 gsap.from('.closing-title', { scale: .7, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.closing', start: 'top 90%', end: 'center 60%', scrub: true } });
