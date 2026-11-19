@@ -1,588 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mailam Engineering College</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mailam CLG – Student Project by Aswini</title>
+<meta name="description" content="A student web-design practice project by Aswini, inspired by Mailam Engineering College. Not the official website.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div>
-            📞 +91 XXXXX XXXXX
-            &nbsp;&nbsp; | &nbsp;&nbsp;
-            ✉ info@mailamengg.ac.in
-        </div>
+<!-- Practice-project notice: always visible -->
+<div class="notice" role="note">
+  Student practice project by Aswini, not the official Mailam Engineering College website.
+  <a href="https://mailamengg.ac.in/" target="_blank" rel="noopener">Official site ↗</a>
+</div>
 
-        <div>
-            Admissions Open 2026
-        </div>
+<header class="nav" id="nav">
+  <a class="brand" href="#top"><span class="brand-dot"></span>Mailam CLG <small>student project</small></a>
+  <nav class="nav-links">
+    <a href="#story">Campus</a>
+    <a href="#programmes">Programmes</a>
+    <a href="#admission">Admission</a>
+    <a href="#life">Campus life</a>
+  </nav>
+  <a class="btn btn-sm" href="https://mailamengg.ac.in/" target="_blank" rel="noopener">Apply ↗</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO: sticky, photo zooms out & title rises as you scroll -->
+  <section class="hero" id="hero">
+    <div class="hero-sticky">
+      <div class="hero-media">
+        <video id="heroImg" src="gemini_generated_video_88a2a6d4.mp4" data-start="10.1" data-end="20" poster="Image-1770892994237.jpg" muted playsinline preload="auto" aria-label="Drone-style view of a blue and pink college campus"></video>
+        <div class="hero-shade"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow reveal-hero">Since 1998 · Villupuram, Tamil Nadu</p>
+        <h1 class="hero-title"><span class="line"><span>Learn.</span></span><span class="line"><span>Build.</span></span><span class="line"><span class="grad">Become.</span></span></h1>
+        <p class="hero-sub reveal-hero">An engineering campus story, redesigned as a student project.</p>
+        <div class="scroll-cue"><span></span>Scroll</div>
+      </div>
     </div>
+  </section>
 
+  <!-- BIG STATEMENT: words light up as you scroll -->
+  <section class="statement" id="story">
+    <p class="light-text" data-light>A 50-acre campus where curiosity becomes code, circuits and careers. Approved by AICTE, affiliated to Anna University, and built around one idea: every student should leave ready to make something real.</p>
+  </section>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+  <!-- STATS: count up -->
+  <section class="stats">
+    <div class="stat"><span class="num" data-count="1998" data-plain>0</span><span class="lbl">Year founded</span></div>
+    <div class="stat"><span class="num" data-count="50">0</span><span class="lbl">Acre campus</span></div>
+    <div class="stat"><span class="num" data-count="14">0</span><span class="lbl">UG &amp; PG programmes</span></div>
+    <div class="stat"><span class="num" data-count="33" data-suffix=" LPA">0</span><span class="lbl">Highest package*</span></div>
+    <p class="fine">*As listed on mailamengg.ac.in. Check the official site for current figures.</p>
+  </section>
 
-        <div class="logo-area">
-            <div class="logo-circle">MEC</div>
+  <!-- VIDEO SCRUB: video plays as you scroll -->
+  <section class="scrub" id="scrub">
+    <div class="scrub-sticky">
+      <video id="scrubVideo" src="gemini_generated_video_88a2a6d4.mp4" data-start="0" data-end="9.95" muted playsinline preload="auto"></video>
+      <div class="scrub-shade"></div>
+      <div class="scrub-captions">
+        <h2 class="cap" data-at="0.05">Labs that<br>think back.</h2>
+        <h2 class="cap" data-at="0.40">Robotics. IDEA Lab.<br>Incubation centre.</h2>
+        <h2 class="cap" data-at="0.75">Ideas, made<br>with your hands.</h2>
+      </div>
+      <div class="scrub-bar"><span id="scrubBar"></span></div>
+    </div>
+  </section>
 
-            <div>
-                <h2>MAILAM ENGINEERING COLLEGE</h2>
-                <p>Excellence • Innovation • Education</p>
-            </div>
+  <!-- PROGRAMMES: switcher like a colour picker -->
+  <section class="programmes" id="programmes">
+    <div class="wrap">
+      <p class="eyebrow up">Programmes</p>
+      <h2 class="big up">Pick your path.</h2>
+      <div class="switch up" role="tablist">
+        <button class="sw active" data-tab="ug" role="tab">Undergraduate · 8</button>
+        <button class="sw" data-tab="pg" role="tab">Postgraduate · 6</button>
+      </div>
+    </div>
+    <div class="cards-rail" data-panel="ug">
+      <article class="pcard c-blue"><span class="pico">🏗️</span><h3>Civil Engineering</h3><p>B.E · 4 years</p></article>
+      <article class="pcard c-pink"><span class="pico">💻</span><h3>Computer Science &amp; Engineering</h3><p>B.E · 4 years</p></article>
+      <article class="pcard c-orange"><span class="pico">⚡</span><h3>Electrical &amp; Electronics</h3><p>B.E · 4 years</p></article>
+      <article class="pcard c-blue"><span class="pico">📡</span><h3>Electronics &amp; Communication</h3><p>B.E · 4 years</p></article>
+      <article class="pcard c-pink"><span class="pico">🌐</span><h3>Information Technology</h3><p>B.Tech · 4 years</p></article>
+      <article class="pcard c-orange"><span class="pico">⚙️</span><h3>Mechanical Engineering</h3><p>B.E · 4 years</p></article>
+      <article class="pcard c-blue"><span class="pico">🤖</span><h3>AI &amp; Data Science</h3><p>B.Tech · 4 years</p></article>
+      <article class="pcard c-pink"><span class="pico">📊</span><h3>CS &amp; Business Systems</h3><p>B.Tech · 4 years</p></article>
+    </div>
+    <div class="cards-rail hidden" data-panel="pg">
+      <article class="pcard c-orange"><span class="pico">📈</span><h3>MBA</h3><p>2 years</p></article>
+      <article class="pcard c-blue"><span class="pico">🧑‍💻</span><h3>MCA</h3><p>2 years</p></article>
+      <article class="pcard c-pink"><span class="pico">🔋</span><h3>M.E Power Electronics &amp; Drives</h3><p>2 years</p></article>
+      <article class="pcard c-orange"><span class="pico">📶</span><h3>M.E Communication Systems</h3><p>2 years</p></article>
+      <article class="pcard c-blue"><span class="pico">📐</span><h3>M.E Engineering Design</h3><p>2 years</p></article>
+      <article class="pcard c-pink"><span class="pico">🧠</span><h3>M.E Computer Science &amp; Engg.</h3><p>2 years</p></article>
+    </div>
+  </section>
+
+  <!-- PANORAMA: photo pans sideways while you scroll down -->
+  <section class="pano" id="life">
+    <div class="pano-sticky">
+      <div class="pano-track" id="panoTrack">
+        <img src="1323333333.webp" alt="Students gathered on the front steps of the campus building">
+      </div>
+      <div class="pano-copy">
+        <p class="eyebrow">Campus life</p>
+        <h2>Your people<br>are here.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSION JOURNEY: line draws itself -->
+  <section class="journey" id="admission">
+    <div class="wrap">
+      <p class="eyebrow up">Admission 2026</p>
+      <h2 class="big up">Four steps to<br>your first day.</h2>
+    </div>
+    <div class="timeline">
+      <svg class="tl-line" viewBox="0 0 4 1000" preserveAspectRatio="none"><path id="tlPath" d="M2 0 V1000"/></svg>
+      <div class="step">
+        <span class="dot">1</span>
+        <div class="step-body">
+          <h3>Check eligibility</h3>
+          <p><b>B.E / B.Tech:</b> pass in 12th (HSC) with Mathematics, Physics and Chemistry, with the minimum marks set by AICTE / TNEA.</p>
+          <p><b>M.E / MBA / MCA:</b> a relevant degree, plus a TANCET / CEETA-PG score.</p>
         </div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#departments">Departments</a>
-            <a href="#facilities">Campus</a>
-            <a href="#placements">Placements</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <button class="admission-btn">
-            Apply Now
-        </button>
-
-    </header>
-
-
-    <!-- HERO -->
-    <section id="home" class="hero">
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-
-            <span class="welcome">WELCOME TO MAILAM ENGINEERING COLLEGE</span>
-
-            <h1>
-                Shape Your Future<br>
-                <span>With Engineering</span>
-            </h1>
-
-            <p>
-                Building knowledge, innovation and leadership
-                for tomorrow's world.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#about" class="primary-btn">
-                    Explore College →
-                </a>
-
-                <a href="#departments" class="secondary-btn">
-                    View Departments
-                </a>
-            </div>
-
+      </div>
+      <div class="step">
+        <span class="dot">2</span>
+        <div class="step-body">
+          <h3>Keep documents ready</h3>
+          <ul class="docs">
+            <li>10th mark sheet</li><li>12th mark sheet</li><li>Transfer certificate</li>
+            <li>Community certificate</li><li>Nativity / first-graduate certificate (if any)</li>
+            <li>Aadhaar card</li><li>Passport-size photos</li><li>Entrance score card (PG)</li>
+          </ul>
         </div>
-
-        <div class="scroll-down">
-            ↓ Scroll to explore
+      </div>
+      <div class="step">
+        <span class="dot">3</span>
+        <div class="step-body">
+          <h3>Choose us in TNEA</h3>
+          <p>During TNEA counselling, use college code <b class="code">1412</b>.</p>
         </div>
-
-    </section>
-
-
-    <!-- QUICK INFO -->
-    <section class="quick-info">
-
-        <div class="info-card">
-            <span>🎓</span>
-            <div>
-                <h3>Quality Education</h3>
-                <p>Student-focused learning</p>
-            </div>
+      </div>
+      <div class="step">
+        <span class="dot">4</span>
+        <div class="step-body">
+          <h3>Apply on the official site</h3>
+          <p>Admissions run only on the college's official website, not on this project page.</p>
+          <a class="btn" href="https://mailamengg.ac.in/" target="_blank" rel="noopener">Go to mailamengg.ac.in ↗</a>
         </div>
-
-        <div class="info-card">
-            <span>💻</span>
-            <div>
-                <h3>Modern Learning</h3>
-                <p>Technology-driven education</p>
-            </div>
-        </div>
-
-        <div class="info-card">
-            <span>🏆</span>
-            <div>
-                <h3>Career Growth</h3>
-                <p>Industry-ready skills</p>
-            </div>
-        </div>
-
-        <div class="info-card">
-            <span>🌱</span>
-            <div>
-                <h3>Student Development</h3>
-                <p>Beyond academics</p>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-
-        <div class="section-label">
-            ABOUT OUR COLLEGE
-        </div>
-
-        <h2>
-            Where Knowledge Meets<br>
-            <span>Innovation</span>
-        </h2>
-
-        <div class="about-content">
-
-            <div class="about-image">
-                <div class="image-placeholder">
-                    <span>MAILAM</span>
-                    <strong>ENGINEERING<br>COLLEGE</strong>
-                </div>
-            </div>
-
-            <div class="about-text">
-
-                <p>
-                    Mailam Engineering College is committed to
-                    providing quality technical education and
-                    creating a learning environment that encourages
-                    innovation, creativity and professional growth.
-                </p>
-
-                <p>
-                    Our institution focuses on developing students
-                    with strong technical knowledge, communication
-                    skills and industry-oriented capabilities.
-                </p>
-
-                <div class="stats">
-
-                    <div>
-                        <strong>25+</strong>
-                        <span>Years of Excellence</span>
-                    </div>
-
-                    <div>
-                        <strong>8+</strong>
-                        <span>Engineering Programmes</span>
-                    </div>
-
-                    <div>
-                        <strong>1000+</strong>
-                        <span>Students</span>
-                    </div>
-
-                </div>
-
-                <a href="#" class="learn-btn">
-                    Learn More →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DEPARTMENTS -->
-    <section id="departments" class="departments">
-
-        <div class="section-label">
-            ACADEMICS
-        </div>
-
-        <h2>
-            Our <span>Departments</span>
-        </h2>
-
-        <p class="section-description">
-            Explore our engineering programmes designed to
-            prepare students for the future.
-        </p>
-
-        <div class="department-grid">
-
-            <div class="department-card">
-
-                <div class="department-icon">💻</div>
-
-                <span>CSE</span>
-
-                <h3>
-                    Computer Science<br>
-                    & Engineering
-                </h3>
-
-                <p>
-                    Programming, software development,
-                    AI and emerging technologies.
-                </p>
-
-                <a href="#">Explore Department →</a>
-
-            </div>
-
-
-            <div class="department-card">
-
-                <div class="department-icon">📡</div>
-
-                <span>ECE</span>
-
-                <h3>
-                    Electronics &<br>
-                    Communication
-                </h3>
-
-                <p>
-                    Electronics, communication and
-                    embedded technologies.
-                </p>
-
-                <a href="#">Explore Department →</a>
-
-            </div>
-
-
-            <div class="department-card">
-
-                <div class="department-icon">⚡</div>
-
-                <span>EEE</span>
-
-                <h3>
-                    Electrical &<br>
-                    Electronics
-                </h3>
-
-                <p>
-                    Power systems, electrical engineering
-                    and modern technologies.
-                </p>
-
-                <a href="#">Explore Department →</a>
-
-            </div>
-
-
-            <div class="department-card">
-
-                <div class="department-icon">⚙️</div>
-
-                <span>MECH</span>
-
-                <h3>
-                    Mechanical<br>
-                    Engineering
-                </h3>
-
-                <p>
-                    Manufacturing, machines and
-                    engineering design.
-                </p>
-
-                <a href="#">Explore Department →</a>
-
-            </div>
-
-        </div>
-
-        <div class="center-button">
-            <a href="#" class="outline-btn">
-                View All Departments
-            </a>
-        </div>
-
-    </section>
-
-
-    <!-- WHY MEC -->
-    <section class="why-mec">
-
-        <div class="why-text">
-
-            <div class="section-label">
-                WHY CHOOSE US
-            </div>
-
-            <h2>
-                Learn. Innovate.<br>
-                <span>Achieve.</span>
-            </h2>
-
-            <p>
-                We believe engineering education is not only
-                about textbooks. It is about developing the
-                ability to solve real-world problems.
-            </p>
-
-            <div class="why-list">
-
-                <div>
-                    <b>✓</b>
-                    <span>Experienced Faculty</span>
-                </div>
-
-                <div>
-                    <b>✓</b>
-                    <span>Modern Laboratories</span>
-                </div>
-
-                <div>
-                    <b>✓</b>
-                    <span>Industry-Oriented Training</span>
-                </div>
-
-                <div>
-                    <b>✓</b>
-                    <span>Career & Placement Support</span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="why-box">
-
-            <div class="big-icon">🎓</div>
-
-            <h3>
-                Building Tomorrow's<br>
-                Engineers
-            </h3>
-
-            <p>
-                Knowledge today. Success tomorrow.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- FACILITIES -->
-    <section id="facilities" class="facilities">
-
-        <div class="section-label">
-            CAMPUS LIFE
-        </div>
-
-        <h2>
-            Experience <span>Campus Life</span>
-        </h2>
-
-        <div class="facility-grid">
-
-            <div class="facility-card">
-                <div class="facility-icon">🏫</div>
-                <h3>Smart Classrooms</h3>
-                <p>Modern learning environment</p>
-            </div>
-
-            <div class="facility-card">
-                <div class="facility-icon">🔬</div>
-                <h3>Laboratories</h3>
-                <p>Practical learning facilities</p>
-            </div>
-
-            <div class="facility-card">
-                <div class="facility-icon">📚</div>
-                <h3>Library</h3>
-                <p>Learning and research resources</p>
-            </div>
-
-            <div class="facility-card">
-                <div class="facility-icon">🏏</div>
-                <h3>Sports</h3>
-                <p>Sports and student activities</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PLACEMENTS -->
-    <section id="placements" class="placements">
-
-        <div class="section-label">
-            CAREER
-        </div>
-
-        <h2>
-            Build Your <span>Career</span>
-        </h2>
-
-        <p>
-            Developing industry-ready students through
-            training, guidance and career opportunities.
-        </p>
-
-        <div class="placement-stats">
-
-            <div>
-                <strong>100+</strong>
-                <span>Recruitment Opportunities</span>
-            </div>
-
-            <div>
-                <strong>500+</strong>
-                <span>Students Trained</span>
-            </div>
-
-            <div>
-                <strong>50+</strong>
-                <span>Industry Connections</span>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- EVENTS -->
-    <section class="events">
-
-        <div class="section-label">
-            CAMPUS UPDATES
-        </div>
-
-        <h2>
-            News & <span>Events</span>
-        </h2>
-
-        <div class="event-grid">
-
-            <div class="event-card">
-
-                <div class="event-date">
-                    <strong>2026</strong>
-                    <span>EVENT</span>
-                </div>
-
-                <div>
-                    <h3>College Events</h3>
-                    <p>
-                        Stay updated with the latest
-                        college activities and programmes.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="event-card">
-
-                <div class="event-date">
-                    <strong>2026</strong>
-                    <span>NEWS</span>
-                </div>
-
-                <div>
-                    <h3>Student Activities</h3>
-                    <p>
-                        Discover student achievements,
-                        clubs and campus activities.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-
-        <div class="contact-box">
-
-            <div>
-
-                <div class="section-label">
-                    GET IN TOUCH
-                </div>
-
-                <h2>
-                    Have Questions?<br>
-                    <span>Talk to Us.</span>
-                </h2>
-
-                <p>
-                    For admissions, courses and other
-                    college-related information, contact us.
-                </p>
-
-            </div>
-
-            <div class="contact-details">
-
-                <p>📍 Mailam, Villupuram District, Tamil Nadu</p>
-                <p>📞 +91 XXXXX XXXXX</p>
-                <p>✉ info@mailamengg.ac.in</p>
-
-                <a href="#" class="primary-btn">
-                    Contact Us →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-main">
-
-            <div>
-                <h2>MAILAM ENGINEERING COLLEGE</h2>
-
-                <p>
-                    Excellence • Innovation • Education
-                </p>
-            </div>
-
-            <div>
-                <h3>Quick Links</h3>
-
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#departments">Departments</a>
-                <a href="#placements">Placements</a>
-            </div>
-
-            <div>
-                <h3>Contact</h3>
-
-                <p>Mailam, Tamil Nadu</p>
-                <p>info@mailamengg.ac.in</p>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            © 2026 Mailam Engineering College. All Rights Reserved.
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES: animated icon tiles -->
+  <section class="facilities">
+    <div class="wrap">
+      <p class="eyebrow up">Facilities</p>
+      <h2 class="big up">Everything you need<br>is on campus.</h2>
+    </div>
+    <div class="grid">
+      <div class="tile t1"><div class="ico book"><i></i><i></i><i></i></div><h3>Digital library</h3><p>Books, journals and e-resources.</p></div>
+      <div class="tile t2"><div class="ico robot"><i class="head"></i><i class="eye l"></i><i class="eye r"></i><i class="arm"></i></div><h3>Robotics &amp; IDEA Lab</h3><p>AICTE-supported making space.</p></div>
+      <div class="tile t3"><div class="ico rocket">🚀</div><h3>Incubation centre</h3><p>Turn a project into a start-up.</p></div>
+      <div class="tile t4"><div class="ico ball">🏀</div><h3>Sports</h3><p>Athletics, hockey, basketball, kho-kho, volleyball.</p></div>
+      <div class="tile t5"><div class="ico cap">🎓</div><h3>Counselling cell</h3><p>Someone to talk to, always.</p></div>
+      <div class="tile t6"><div class="ico atom"><i></i><i></i><i></i><b></b></div><h3>Research centres</h3><p>Labs for every department.</p></div>
+    </div>
+  </section>
+
+  <!-- PARTNERS: infinite marquee -->
+  <section class="partners">
+    <p class="eyebrow center">Centres of excellence with</p>
+    <div class="marquee"><div class="marquee-track">
+      <span>AWS</span><span>Cisco</span><span>Dell EMC</span><span>VMware</span><span>Red Hat</span><span>ICT Academy</span>
+      <span>AWS</span><span>Cisco</span><span>Dell EMC</span><span>VMware</span><span>Red Hat</span><span>ICT Academy</span>
+    </div></div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <svg id="mascot" class="mascot" viewBox="0 0 200 260" role="img" aria-label="Animated cartoon student throwing a graduation cap">
+      <ellipse cx="100" cy="250" rx="55" ry="7" fill="#ffffff14"/>
+      <g id="mascotBody">
+        <rect x="76" y="190" width="18" height="58" rx="8" fill="#2b3a67"/><rect x="106" y="190" width="18" height="58" rx="8" fill="#2b3a67"/>
+        <path d="M62 120 Q100 100 138 120 L132 200 Q100 212 68 200 Z" fill="#4ea8ff"/>
+        <path d="M92 112 L100 135 L108 112 Z" fill="#fff"/>
+        <g id="armL"><rect x="52" y="118" width="16" height="62" rx="8" fill="#4ea8ff" transform="rotate(12 60 120)"/><circle cx="48" cy="180" r="9" fill="#c98a5e"/></g>
+        <g id="armR"><rect x="128" y="112" width="16" height="62" rx="8" fill="#4ea8ff"/><circle cx="136" cy="176" r="9" fill="#c98a5e"/></g>
+        <rect x="92" y="96" width="16" height="16" rx="4" fill="#c98a5e"/>
+        <circle cx="100" cy="72" r="34" fill="#c98a5e"/>
+        <path d="M66 66 Q70 36 100 36 Q132 36 134 66 Q120 50 100 52 Q78 50 66 66Z" fill="#1d1d1f"/>
+        <g id="eyes"><circle cx="88" cy="74" r="4.5" fill="#1d1d1f"/><circle cx="112" cy="74" r="4.5" fill="#1d1d1f"/></g>
+        <path d="M88 88 Q100 98 112 88" stroke="#1d1d1f" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="80" cy="85" r="5" fill="#ff7eb6" opacity=".5"/><circle cx="120" cy="85" r="5" fill="#ff7eb6" opacity=".5"/>
+        <g id="gradCap"><path d="M60 38 L100 22 L140 38 L100 54 Z" fill="#1d1d1f"/><rect x="84" y="40" width="32" height="12" rx="3" fill="#1d1d1f"/><path d="M134 40 L136 62" stroke="#ff9f43" stroke-width="3"/><circle cx="136" cy="64" r="4" fill="#ff9f43"/></g>
+      </g>
+    </svg>
+    <h2 class="closing-title">Your story<br><span class="grad">starts here.</span></h2>
+    <a class="btn btn-lg" href="https://mailamengg.ac.in/" target="_blank" rel="noopener">Visit the official website ↗</a>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><b>Mailam CLG – Student Project by Aswini.</b> Built to practise web design and animation.</p>
+  <p>This is <b>not</b> the official website of Mailam Engineering College and does not take applications or payments. For admissions and current information, visit <a href="https://mailamengg.ac.in/" target="_blank" rel="noopener">mailamengg.ac.in</a>.</p>
+  <p class="fine">Facts are from the official website, Nov 2026. Photos are from the project author's own files. The videos are AI-generated with Google Gemini and are not real footage.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
